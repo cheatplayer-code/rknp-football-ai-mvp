@@ -664,9 +664,9 @@ def build_quality_gate(metrics: Dict[str, Any], records: List[Dict[str, Any]], p
     if selected_mode.startswith("auto_"):
         # Auto target selection is okay for a quick smoke test, but the contest demo should still
         # show the candidate sheet and explain the planned coach-click workflow.
-        demo_note = "auto-selected target; visually confirm candidate sheet before showing as final demo"
+        demo_note = "AUTO-SELECTED TARGET: COACH MUST VISUALLY CONFIRM CANDIDATE SHEET BEFORE TRUSTING THIS REPORT"
     else:
-        demo_note = "manual seed bbox / coach-click style initialization"
+        demo_note = "manual seed bbox / coach-click style initialization; still verify tracking visually"
 
     return {
         "tracking_confidence": round(clamp(0.55 * visible_pct + 0.35 * trusted_pct - 1.8 * speed_outlier_count - 3.0 * color_mismatch_count, 0.0, 100.0), 2),
@@ -855,7 +855,7 @@ def write_candidate_sheet(path: Path, frame: np.ndarray, persons: List[Detection
         cv2.rectangle(out, (b["x1"], b["y1"]), (b["x2"], b["y2"]), color, 2)
         cv2.putText(out, str(idx), (b["x1"], max(18, b["y1"] - 5)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2, cv2.LINE_AA)
     cv2.rectangle(out, (0, 0), (out.shape[1], 34), (0, 0, 0), -1)
-    cv2.putText(out, f"Candidate sheet at {frame_time:.2f}s; green = selected target", (8, 23), cv2.FONT_HERSHEY_SIMPLEX, 0.62, (255, 255, 255), 1, cv2.LINE_AA)
+    cv2.putText(out, f"COACH-CLICK REQUIRED: visually confirm target (green) before trusting report; auto-selected at {frame_time:.2f}s", (8, 23), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 1, cv2.LINE_AA)
     path.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(path), out)
 
@@ -877,6 +877,8 @@ def build_markdown(report: Dict[str, Any]) -> str:
     card = report["rating"]["fifa_style_card"]
     lines = [
         "# RKNP Single Player Demo Report",
+        "",
+        "> **⚠️ Limitation Notice:** This report is based on short-clip image-space tracking. It is not full-match analysis and does not estimate real-world speed, distance, pass accuracy, xG, or tactical value.",
         "",
         f"- input_video: `{report['input_video']}`",
         f"- status: `{report['status']}`",
@@ -927,6 +929,8 @@ def build_markdown(report: Dict[str, Any]) -> str:
         "",
         "- Demo analyzes one short episode, not a full match.",
         "- Exact passes, xG, heatmaps and tactical network maps are not claimed.",
+        "- Speed/motion metrics are image-space relative movement indicators (body-heights/sec), NOT km/h or meters.",
+        "- Ball-near metrics may be unreliable when the ball is small, blurred, occluded, or not detected by YOLO.",
         "- Ball detection is unreliable on broadcast/screen-recorded footage, so ball-related events use low confidence unless evidence is strong.",
         "- Rating is an explainable MVP score for motivation and coaching support, not an official player level.",
         "",
