@@ -407,13 +407,21 @@ def build_markdown(result: Dict[str, Any], reports: List[Dict[str, Any]]) -> str
         f"- provider_status: `{result.get('provider_status')}`",
         f"- model: `{result.get('model')}`",
         "",
+    ]
+    if result.get("fallback_mode"):
+        lines.append("> **⚠️ Offline Fallback Mode:** OpenAI API was unavailable. This report is generated locally from JSON metrics only. OpenAI did NOT watch the video.")
+        lines.append("")
+    else:
+        lines.append("> **Note:** OpenAI/LLM only explains existing JSON metrics. It does NOT perform computer vision or watch the video directly.")
+        lines.append("")
+    lines.extend([
         "## Coach Summary",
         "",
         str(result.get("coach_summary") or "No summary."),
         "",
         "## Player Comparison",
         "",
-    ]
+    ])
     for item in result.get("player_comparison") or []:
         lines.append(f"### {item.get('short_label') or item.get('run_name')}")
         lines.append("")
