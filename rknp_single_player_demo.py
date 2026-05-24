@@ -356,6 +356,7 @@ def track_direction(
                 "ball_count": len(balls),
                 "ball_near": False,
                 "nearby_player_count": 0,
+                "occlusion_risk": False,
                 "target_color": target_color,
                 "selected_color": None,
             }
@@ -386,6 +387,7 @@ def track_direction(
                 "ball_count": len(balls),
                 "ball_near": False,
                 "nearby_player_count": 0,
+                "occlusion_risk": False,
                 "target_color": target_color,
                 "selected_color": chosen.team_color,
                 "candidate_margin": round_float(margin),
@@ -401,6 +403,7 @@ def track_direction(
                 "ball_count": len(balls),
                 "ball_near": False,
                 "nearby_player_count": 0,
+                "occlusion_risk": False,
                 "target_color": target_color,
                 "selected_color": chosen.team_color,
                 "candidate_margin": round_float(margin),
@@ -416,6 +419,7 @@ def track_direction(
                 "ball_count": len(balls),
                 "ball_near": False,
                 "nearby_player_count": 0,
+                "occlusion_risk": False,
                 "target_color": target_color,
                 "selected_color": chosen.team_color,
                 "candidate_margin": round_float(margin),
@@ -437,10 +441,17 @@ def track_direction(
             if expanded_bbox_contains_point(chosen.bbox, ball_center, 3.0) or distance <= height * 2.4:
                 ball_near = True
         nearby_players = 0
+        occlusion_risk = False
         for person in persons:
             if person.bbox == chosen.bbox:
                 continue
-            if point_distance(center, bbox_center(person.bbox)) <= height * 2.2:
+            # Check for intersection OR very close proximity (< 0.5 * target_height)
+            has_intersection = bbox_iou(chosen.bbox, person.bbox) > 0.0
+            center_dist = point_distance(center, bbox_center(person.bbox))
+            is_very_close = center_dist < 0.5 * height
+            if has_intersection or is_very_close:
+                occlusion_risk = True
+            if center_dist <= height * 2.2:
                 nearby_players += 1
         records[frame_index] = {
             "bbox_xyxy": chosen.bbox,
@@ -451,6 +462,7 @@ def track_direction(
             "ball_near": bool(ball_near),
             "nearest_ball_distance_px": round_float(nearest_ball_distance, 2),
             "nearby_player_count": nearby_players,
+            "occlusion_risk": occlusion_risk,
             "target_color": target_color,
             "selected_color": chosen.team_color,
             "candidate_margin": round_float(margin),
@@ -613,6 +625,7 @@ def build_quality_gate(metrics: Dict[str, Any], records: List[Dict[str, Any]], p
     uncertain_count = len([r for r in records if str(r.get("trust_label") or "") == "uncertain"])
     motion_jump_count = len([r for r in records if str(r.get("trust_label") or "") == "lost_motion_jump"])
     color_mismatch_count = len([r for r in records if str(r.get("trust_label") or "") == "lost_color_mismatch"])
+    occlusion_risk_count = len([r for r in records if r.get("occlusion_risk")])
     lost_pct = 100.0 * lost_count / total
     visible_pct = float(metrics.get("visibility_pct") or 0.0)
     trusted_pct = float(metrics.get("trusted_pct") or 0.0)
@@ -621,7 +634,29 @@ def build_quality_gate(metrics: Dict[str, Any], records: List[Dict[str, Any]], p
     frame_h = float(probe.get("height") or 0.0)
     median_target_height_px = float(np.median(heights)) if heights else 0.0
     median_target_height_pct = 100.0 * median_target_height_px / frame_h if frame_h > 0 else 0.0
+    
+    # NEW: Relative target size check using area ratio
+    frame_area = float(probe.get("width") or 0.0) * frame_h
+    target_bbox_areas = [bbox_area(r["bbox_xyxy"]) for r in records if r.get("bbox_xyxy")]
+    median_target_area = float(np.median(target_bbox_areas)) if target_bbox_areas else 0.0
+    target_area_ratio = median_target_area / frame_area if frame_area > 0 else 0.0
+    
     failure_reasons = classify_failure_reasons(records, metrics, probe)
+    
+    # Add new reasons based on improved logic
+    if target_area_ratio < 0.002 and "target_too_small" not in failure_reasons:
+        failure_reasons.append("target_too_small")
+    if occlusion_risk_count > total * 0.3 and "close_players_or_occlusion_risk" not in failure_reasons:
+        failure_reasons.append("close_players_or_occlusion_risk")
+    if speed_outlier_count >= 3 and "speed_outlier_risk" not in failure_reasons:
+        failure_reasons.append("speed_outlier_risk")
+    if lost_pct >= 5.0 and "lost_frames_risk" not in failure_reasons:
+        failure_reasons.append("lost_frames_risk")
+    if float(metrics.get("ball_near_pct") or 0.0) <= 5.0 and "ball_detection_weak" not in failure_reasons:
+        failure_reasons.append("ball_detection_weak")
+    
+    # Cap the list to avoid huge output
+    failure_reasons = sorted(set(failure_reasons))[:8]
 
     penalties = 0
     if visible_pct < 90.0:
@@ -644,6 +679,16 @@ def build_quality_gate(metrics: Dict[str, Any], records: List[Dict[str, Any]], p
         penalties += 2
     if median_target_height_pct and median_target_height_pct < 5.0:
         penalties += 1
+    # NEW: Penalty for high occlusion risk
+    if occlusion_risk_count > total * 0.4:
+        penalties += 2
+    elif occlusion_risk_count > total * 0.2:
+        penalties += 1
+    # NEW: Penalty for very small target (area ratio)
+    if target_area_ratio < 0.002:
+        penalties += 2
+    elif target_area_ratio < 0.005:
+        penalties += 1
 
     if penalties <= 1:
         label = "high"
@@ -659,6 +704,8 @@ def build_quality_gate(metrics: Dict[str, Any], records: List[Dict[str, Any]], p
         or color_mismatch_count > 0
         or "bbox_drift_or_motion_jump" in failure_reasons
         or "opposite_team_confusion" in failure_reasons
+        or target_area_ratio < 0.002
+        or occlusion_risk_count > total * 0.5
     )
     demo_suitable = label == "high" and visible_pct >= 90.0 and not hard_demo_blockers
     if selected_mode.startswith("auto_"):
@@ -679,8 +726,11 @@ def build_quality_gate(metrics: Dict[str, Any], records: List[Dict[str, Any]], p
         "uncertain_sample_count": uncertain_count,
         "motion_jump_reject_count": motion_jump_count,
         "color_mismatch_reject_count": color_mismatch_count,
+        "occlusion_risk_sample_count": occlusion_risk_count,
+        "occlusion_risk_pct": round(100.0 * occlusion_risk_count / total, 2),
         "median_target_height_px": round_float(median_target_height_px, 2),
         "median_target_height_pct_of_frame": round_float(median_target_height_pct, 2),
+        "median_target_area_ratio": round_float(target_area_ratio, 6),
         "failure_taxonomy": failure_reasons,
         "hard_demo_blockers": bool(hard_demo_blockers),
         "guardrail": "If demo_suitable is false, use this run as a caution/failure case, not as the main demo.",
@@ -895,9 +945,28 @@ def build_markdown(report: Dict[str, Any]) -> str:
         f"- lost_pct: `{(report.get('quality_gate') or {}).get('lost_pct')}`",
         f"- motion_jump_reject_count: `{(report.get('quality_gate') or {}).get('motion_jump_reject_count')}`",
         f"- color_mismatch_reject_count: `{(report.get('quality_gate') or {}).get('color_mismatch_reject_count')}`",
+        f"- occlusion_risk_pct: `{(report.get('quality_gate') or {}).get('occlusion_risk_pct')}`",
+        f"- median_target_area_ratio: `{(report.get('quality_gate') or {}).get('median_target_area_ratio')}`",
         f"- median_target_height_pct_of_frame: `{(report.get('quality_gate') or {}).get('median_target_height_pct_of_frame')}`",
         f"- failure_taxonomy: `{', '.join((report.get('quality_gate') or {}).get('failure_taxonomy') or []) or 'none'}`",
         f"- note: {(report.get('quality_gate') or {}).get('demo_note')}",
+        "",
+        "## Why This Reliability Rating?",
+        "",
+        f"**Reliability:** `{(report.get('quality_gate') or {}).get('visual_reliability_label')}`",
+        "",
+        "Key factors:",
+        f"- Visibility: {summary['visibility_pct']}% (higher = more frames tracked)",
+        f"- Trusted tracking: {summary['trusted_pct']}% (frames with high-confidence lock)",
+        f"- Lost frames: {(report.get('quality_gate') or {}).get('lost_pct')}%",
+        f"- Speed outliers: {summary.get('speed_outlier_count', 0)} (sudden jumps that may indicate identity switch)",
+        f"- Occlusion risk: {(report.get('quality_gate') or {}).get('occlusion_risk_pct')}% (frames where other players block or are very close to target)",
+        f"- Target size ratio: {(report.get('quality_gate') or {}).get('median_target_area_ratio')} (target area / frame area; <0.002 is too small)",
+        "",
+        "Interpretation:",
+        "- **High**: Very few lost frames, minimal speed outliers, low occlusion risk. Suitable for demo with visual confirmation.",
+        "- **Medium**: Some tracking challenges detected (occasional overlaps, moderate lost frames). Use with caution and verify visually.",
+        "- **Low**: Significant issues (frequent losses, identity confusion, very small target, or heavy occlusion). Not suitable as primary demo.",
         "",
         "## FIFA-Style Card",
         "",
