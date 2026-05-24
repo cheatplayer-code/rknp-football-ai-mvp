@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "stage": "rknp_openai_player_analysis",
+  "created_at_utc": "2026-05-24T09:45:00.457174Z",
+  "model": "gpt-4.1-mini",
+  "reports": [
+    {
+      "run_name": "track_yellow_candidate03_t17",
+      "report_path": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\rknp_single_player_report.json",
+      "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+      "selected_player": {
+        "mode": "seed_bbox",
+        "time_sec": 1.7,
+        "bbox_xyxy": {
+          "x1": 738,
+          "y1": 231,
+          "x2": 769,
+          "y2": 285
+        },
+        "description": "Yellow player from user screenshot, candidate 3 at 1.70s."
+      },
+      "metrics": {
+        "sample_count": 85,
+        "duration_sec": 16.8,
+        "visible_sample_count": 85,
+        "trusted_sample_count": 85,
+        "visibility_pct": 100.0,
+        "trusted_pct": 100.0,
+        "ball_near_sample_count": 3,
+        "ball_near_pct": 3.53,
+        "pressure_sample_count": 67,
+        "pressure_pct": 78.82,
+        "avg_speed_body_heights_per_sec": 1.653,
+        "p90_speed_body_heights_per_sec": 3.161,
+        "max_speed_body_heights_per_sec": 3.984,
+        "raw_max_speed_body_heights_per_sec": 6.296,
+        "speed_outlier_count": 8,
+        "high_intensity_sample_count": 35
+      },
+      "events": [
+        {
+          "time_sec": 3.1,
+          "time_label": "00:03.1",
+          "action": "run_into_space",
+          "outcome": "neutral",
+          "confidence": "medium",
+          "evidence": "Peak movement speed: 3.98 body-heights/sec."
+        },
+        {
+          "time_sec": 17.7,
+          "time_label": "00:17.7",
+          "action": "carrying_ball",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+        },
+        {
+          "time_sec": 1.9,
+          "time_label": "00:01.9",
+          "action": "pressing",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+        }
+      ],
+      "rating": {
+        "ai_player_rating": 8.51,
+        "fifa_style_card": {
+          "OVR": 85,
+          "PAC": 87,
+          "ACT": 92,
+          "INV": 58,
+          "REL": 95,
+          "DEV": 83
+        }
+      },
+      "artifacts": {
+        "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\target_overlay_sampled.mp4",
+        "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\player_centered_sampled.mp4",
+        "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\candidate_selection_sheet.jpg",
+        "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\target_tracking_contact_sheet.jpg"
+      },
+      "limitations": [
+        "Short-clip MVP only.",
+        "Single selected player only.",
+        "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+        "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+      ]
+    },
+    {
+      "run_name": "track_blue_candidate08_t17",
+      "report_path": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\rknp_single_player_report.json",
+      "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+      "selected_player": {
+        "mode": "seed_bbox",
+        "time_sec": 1.7,
+        "bbox_xyxy": {
+          "x1": 815,
+          "y1": 225,
+          "x2": 846,
+          "y2": 281
+        },
+        "description": "Blue player from user screenshot, candidate 8 at 1.70s."
+      },
+      "metrics": {
+        "sample_count": 85,
+        "duration_sec": 16.8,
+        "visible_sample_count": 85,
+        "trusted_sample_count": 85,
+        "visibility_pct": 100.0,
+        "trusted_pct": 100.0,
+        "ball_near_sample_count": 5,
+        "ball_near_pct": 5.88,
+        "pressure_sample_count": 72,
+        "pressure_pct": 84.71,
+        "avg_speed_body_heights_per_sec": 1.332,
+        "p90_speed_body_heights_per_sec": 2.634,
+        "max_speed_body_heights_per_sec": 3.492,
+        "raw_max_speed_body_heights_per_sec": 6.296,
+        "speed_outlier_count": 7,
+        "high_intensity_sample_count": 26
+      },
+      "events": [
+        {
+          "time_sec": 9.3,
+          "time_label": "00:09.3",
+          "action": "run_into_space",
+          "outcome": "neutral",
+          "confidence": "medium",
+          "evidence": "Peak movement speed: 3.49 body-heights/sec."
+        },
+        {
+          "time_sec": 3.9,
+          "time_label": "00:03.9",
+          "action": "carrying_ball",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+        },
+        {
+          "time_sec": 1.9,
+          "time_label": "00:01.9",
+          "action": "pressing",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+        }
+      ],
+      "rating": {
+        "ai_player_rating": 8.53,
+        "fifa_style_card": {
+          "OVR": 85,
+          "PAC": 87,
+          "ACT": 92,
+          "INV": 60,
+          "REL": 95,
+          "DEV": 84
+        }
+      },
+      "artifacts": {
+        "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\target_overlay_sampled.mp4",
+        "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\player_centered_sampled.mp4",
+        "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\candidate_selection_sheet.jpg",
+        "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\target_tracking_contact_sheet.jpg"
+      },
+      "limitations": [
+        "Short-clip MVP only.",
+        "Single selected player only.",
+        "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+        "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+      ]
+    }
+  ],
+  "openai_result": {
+    "coach_summary": "Оба игрока демонстрируют высокую активность и хорошую видимость на поле в течение короткого эпизода. Игрок Yellow показывает более высокую максимальную скорость и большее количество интенсивных движений, что говорит о хорошей физической подготовке и активности под давлением. Игрок Blue имеет чуть выше показатель доверия и немного лучшее владение мячом по времени, а также более высокая доля давления, что указывает на уверенность в игровых дуэлях. Для дальнейшего развития стоит сосредоточиться на улучшении взаимодействия с мячом и повышении эффективности действий под давлением.",
+    "player_comparison": [
+      {
+        "run_name": "track_yellow_candidate03_t17",
+        "short_label": "Игрок Yellow",
+        "episode_profile": "100% видимости, 3.53% времени с мячом, 78.82% времени под давлением, средняя скорость 1.65 телосложений/сек, максимальная 3.98 телосложений/сек, 35 образцов высокой интенсивности.",
+        "strengths": [
+          "Высокая максимальная скорость и активность в движении.",
+          "Большое количество времени под давлением, что говорит о готовности к игровым дуэлям.",
+          "Отличная видимость и доверие к данным."
+        ],
+        "development_zones": [
+          "Низкий процент времени с мячом — требуется улучшать контроль и взаимодействие.",
+          "Увеличить количество высокоинтенсивных действий для повышения влияния на игру."
+        ],
+        "training_recommendations": [
+          "Упражнения на контроль мяча и дриблинг под давлением.",
+          "Тренировки на развитие выносливости и скорости для поддержания интенсивности.",
+          "Работа над принятием решений в условиях давления."
+        ],
+        "rating_interpretation": "Рейтинг отражает активность и физическую готовность в коротком эпизоде, но не гарантирует мастерство владения мячом или тактическую эффективность."
+      },
+      {
+        "run_name": "track_blue_candidate08_t17",
+        "short_label": "Игрок Blue",
+        "episode_profile": "100% видимости, 5.88% времени с мячом, 84.71% времени под давлением, средняя скорость 1.33 телосложений/сек, максимальная 3.49 телосложений/сек, 26 образцов высокой интенсивности.",
+        "strengths": [
+          "Высокий процент времени под давлением, что демонстрирует уверенность в игровых дуэлях.",
+          "Лучший показатель владения мячом по времени среди сравниваемых игроков.",
+          "Отличное доверие к данным и полная видимость."
+        ],
+        "development_zones": [
+          "Средняя и максимальная скорость ниже, чем у конкурента, стоит работать над физической подготовкой.",
+          "Меньшее количество высокоинтенсивных действий, что может снижать влияние на игру."
+        ],
+        "training_recommendations": [
+          "Тренировки на развитие скорости и взрывной силы.",
+          "Упражнения на повышение интенсивности движений и быстроту реакции.",
+          "Работа над улучшением взаимодействия с мячом в условиях давления."
+        ],
+        "rating_interpretation": "Рейтинг отражает уверенность в игровых дуэлях и владение мячом, но не учитывает тактические аспекты и длительность игрового влияния."
+      }
+    ],
+    "best_demo_player": {
+      "run_name": "track_yellow_candidate03_t17",
+      "reason": "Игрок Yellow демонстрирует более высокую максимальную скорость и большее количество интенсивных движений, что лучше иллюстрирует возможности системы по оценке физической активности и давления в коротком эпизоде."
+    },
+    "research_interpretation": [
+      "Метрики показывают, что высокая физическая активность и способность действовать под давлением связаны с лучшей видимостью и доверием к данным в коротких игровых эпизодах.",
+      "Ограничение заключается в том, что анализ основан на коротком клипе и одном игроке, без учета комплексной тактики и длительного игрового контекста."
+    ],
+    "limitations": [
+      "Анализ ограничен коротким видеофрагментом и одним выбранным игроком.",
+      "Отсутствуют данные о точных передачах, ударах и тактической расстановке.",
+      "Использование экранных записей с UI-артефактами снижает точность некоторых метрик.",
+      "Метрики не отражают долгосрочную эффективность и командное взаимодействие."
+    ],
+    "parse_status": "ok",
+    "provider_status": "ok",
+    "model": "gpt-4.1-mini"
+  }
+}

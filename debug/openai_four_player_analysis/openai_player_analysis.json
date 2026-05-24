@@ -1,0 +1,487 @@
+{
+  "schema_version": "1.0",
+  "stage": "rknp_openai_player_analysis",
+  "created_at_utc": "2026-05-24T11:07:00.472269Z",
+  "model": "gpt-4.1-mini",
+  "reports": [
+    {
+      "run_name": "primary_134136",
+      "report_path": "/mnt/data/audit_v2_norm/rknp_contest_clean_package_v2/sample_outputs/primary_134136/rknp_single_player_report.json",
+      "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+      "selected_player": {
+        "mode": "auto_lower_center",
+        "time_sec": 2.5,
+        "bbox_xyxy": {
+          "x1": 784,
+          "y1": 368,
+          "x2": 836,
+          "y2": 464
+        },
+        "description": "Auto-selected player for RKNP demo; coach can replace with a seed bbox."
+      },
+      "metrics": {
+        "sample_count": 81,
+        "duration_sec": 16.0,
+        "visible_sample_count": 81,
+        "trusted_sample_count": 81,
+        "visibility_pct": 100.0,
+        "trusted_pct": 100.0,
+        "ball_near_sample_count": 6,
+        "ball_near_pct": 7.41,
+        "pressure_sample_count": 45,
+        "pressure_pct": 55.56,
+        "avg_speed_body_heights_per_sec": 1.071,
+        "p90_speed_body_heights_per_sec": 2.158,
+        "max_speed_body_heights_per_sec": 3.97,
+        "raw_max_speed_body_heights_per_sec": 10.807,
+        "speed_outlier_count": 1,
+        "high_intensity_sample_count": 20
+      },
+      "quality_gate": {
+        "tracking_confidence": 88.2,
+        "visual_reliability_label": "high",
+        "demo_suitable": true,
+        "lost_pct": 0.0,
+        "motion_jump_reject_count": 0,
+        "color_mismatch_reject_count": 0,
+        "failure_taxonomy": [],
+        "hard_demo_blockers": false,
+        "legacy_gate": true,
+        "quality_gate_source": "posthoc_legacy_metrics_v3"
+      },
+      "events": [
+        {
+          "time_sec": 13.3,
+          "time_label": "00:13.3",
+          "action": "run_into_space",
+          "outcome": "neutral",
+          "confidence": "medium",
+          "evidence": "Peak movement speed: 3.97 body-heights/sec."
+        },
+        {
+          "time_sec": 3.9,
+          "time_label": "00:03.9",
+          "action": "receiving_ball",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+        },
+        {
+          "time_sec": 2.7,
+          "time_label": "00:02.7",
+          "action": "pressing",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+        }
+      ],
+      "rating": {
+        "ai_player_rating": 8.38,
+        "fifa_style_card": {
+          "OVR": 84,
+          "PAC": 86,
+          "ACT": 87,
+          "INV": 55,
+          "REL": 95,
+          "DEV": 81
+        }
+      },
+      "artifacts": {
+        "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\target_overlay_sampled.mp4",
+        "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\player_centered_sampled.mp4",
+        "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\candidate_selection_sheet.jpg",
+        "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\target_tracking_contact_sheet.jpg"
+      },
+      "limitations": [
+        "Short-clip MVP only.",
+        "Single selected player only.",
+        "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+        "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+      ]
+    },
+    {
+      "run_name": "backup_134049",
+      "report_path": "/mnt/data/audit_v2_norm/rknp_contest_clean_package_v2/sample_outputs/backup_134049/rknp_single_player_report.json",
+      "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-40-49.mkv",
+      "selected_player": {
+        "mode": "auto_lower_center",
+        "time_sec": 2.5,
+        "bbox_xyxy": {
+          "x1": 494,
+          "y1": 389,
+          "x2": 548,
+          "y2": 479
+        },
+        "description": "Auto-selected player for RKNP demo."
+      },
+      "metrics": {
+        "sample_count": 58,
+        "duration_sec": 11.4,
+        "visible_sample_count": 58,
+        "trusted_sample_count": 56,
+        "visibility_pct": 100.0,
+        "trusted_pct": 96.55,
+        "ball_near_sample_count": 5,
+        "ball_near_pct": 8.62,
+        "pressure_sample_count": 50,
+        "pressure_pct": 86.21,
+        "avg_speed_body_heights_per_sec": 0.868,
+        "p90_speed_body_heights_per_sec": 1.683,
+        "max_speed_body_heights_per_sec": 2.208,
+        "raw_max_speed_body_heights_per_sec": 33.621,
+        "speed_outlier_count": 3,
+        "high_intensity_sample_count": 5
+      },
+      "quality_gate": {
+        "tracking_confidence": 83.39,
+        "visual_reliability_label": "high",
+        "demo_suitable": true,
+        "lost_pct": 0.0,
+        "motion_jump_reject_count": 0,
+        "color_mismatch_reject_count": 0,
+        "failure_taxonomy": [
+          "close_players_or_occlusion_risk"
+        ],
+        "hard_demo_blockers": false,
+        "legacy_gate": true,
+        "quality_gate_source": "posthoc_legacy_metrics_v3"
+      },
+      "events": [
+        {
+          "time_sec": 11.7,
+          "time_label": "00:11.7",
+          "action": "run_into_space",
+          "outcome": "neutral",
+          "confidence": "medium",
+          "evidence": "Peak movement speed: 2.21 body-heights/sec."
+        },
+        {
+          "time_sec": 3.5,
+          "time_label": "00:03.5",
+          "action": "carrying_ball",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+        },
+        {
+          "time_sec": 2.7,
+          "time_label": "00:02.7",
+          "action": "pressing",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+        }
+      ],
+      "rating": {
+        "ai_player_rating": 8.22,
+        "fifa_style_card": {
+          "OVR": 82,
+          "PAC": 76,
+          "ACT": 80,
+          "INV": 59,
+          "REL": 95,
+          "DEV": 78
+        }
+      },
+      "artifacts": {
+        "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134049_auto\\target_overlay_sampled.mp4",
+        "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134049_auto\\player_centered_sampled.mp4",
+        "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134049_auto\\candidate_selection_sheet.jpg",
+        "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134049_auto\\target_tracking_contact_sheet.jpg"
+      },
+      "limitations": [
+        "Short-clip MVP only.",
+        "Single selected player only.",
+        "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+        "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+      ]
+    },
+    {
+      "run_name": "track_yellow_candidate03_t17",
+      "report_path": "/mnt/data/audit_v2_norm/rknp_contest_clean_package_v2/sample_outputs/screenshot_yellow_vs_blue/track_yellow_candidate03_t17/rknp_single_player_report.json",
+      "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+      "selected_player": {
+        "mode": "seed_bbox",
+        "time_sec": 1.7,
+        "bbox_xyxy": {
+          "x1": 738,
+          "y1": 231,
+          "x2": 769,
+          "y2": 285
+        },
+        "description": "Yellow player from user screenshot, candidate 3 at 1.70s."
+      },
+      "metrics": {
+        "sample_count": 85,
+        "duration_sec": 16.8,
+        "visible_sample_count": 85,
+        "trusted_sample_count": 85,
+        "visibility_pct": 100.0,
+        "trusted_pct": 100.0,
+        "ball_near_sample_count": 3,
+        "ball_near_pct": 3.53,
+        "pressure_sample_count": 67,
+        "pressure_pct": 78.82,
+        "avg_speed_body_heights_per_sec": 1.653,
+        "p90_speed_body_heights_per_sec": 3.161,
+        "max_speed_body_heights_per_sec": 3.984,
+        "raw_max_speed_body_heights_per_sec": 6.296,
+        "speed_outlier_count": 8,
+        "high_intensity_sample_count": 35
+      },
+      "quality_gate": {
+        "tracking_confidence": 75.6,
+        "visual_reliability_label": "medium",
+        "demo_suitable": false,
+        "lost_pct": 0.0,
+        "motion_jump_reject_count": 0,
+        "color_mismatch_reject_count": 0,
+        "failure_taxonomy": [
+          "bbox_drift_or_motion_jump",
+          "close_players_or_occlusion_risk"
+        ],
+        "hard_demo_blockers": true,
+        "legacy_gate": true,
+        "quality_gate_source": "posthoc_legacy_metrics_v3"
+      },
+      "events": [
+        {
+          "time_sec": 3.1,
+          "time_label": "00:03.1",
+          "action": "run_into_space",
+          "outcome": "neutral",
+          "confidence": "medium",
+          "evidence": "Peak movement speed: 3.98 body-heights/sec."
+        },
+        {
+          "time_sec": 17.7,
+          "time_label": "00:17.7",
+          "action": "carrying_ball",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+        },
+        {
+          "time_sec": 1.9,
+          "time_label": "00:01.9",
+          "action": "pressing",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+        }
+      ],
+      "rating": {
+        "ai_player_rating": 8.51,
+        "fifa_style_card": {
+          "OVR": 85,
+          "PAC": 87,
+          "ACT": 92,
+          "INV": 58,
+          "REL": 95,
+          "DEV": 83
+        }
+      },
+      "artifacts": {
+        "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\target_overlay_sampled.mp4",
+        "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\player_centered_sampled.mp4",
+        "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\candidate_selection_sheet.jpg",
+        "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_yellow_candidate03_t17\\target_tracking_contact_sheet.jpg"
+      },
+      "limitations": [
+        "Short-clip MVP only.",
+        "Single selected player only.",
+        "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+        "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+      ]
+    },
+    {
+      "run_name": "track_blue_candidate08_t17",
+      "report_path": "/mnt/data/audit_v2_norm/rknp_contest_clean_package_v2/sample_outputs/screenshot_yellow_vs_blue/track_blue_candidate08_t17/rknp_single_player_report.json",
+      "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+      "selected_player": {
+        "mode": "seed_bbox",
+        "time_sec": 1.7,
+        "bbox_xyxy": {
+          "x1": 815,
+          "y1": 225,
+          "x2": 846,
+          "y2": 281
+        },
+        "description": "Blue player from user screenshot, candidate 8 at 1.70s."
+      },
+      "metrics": {
+        "sample_count": 85,
+        "duration_sec": 16.8,
+        "visible_sample_count": 85,
+        "trusted_sample_count": 85,
+        "visibility_pct": 100.0,
+        "trusted_pct": 100.0,
+        "ball_near_sample_count": 5,
+        "ball_near_pct": 5.88,
+        "pressure_sample_count": 72,
+        "pressure_pct": 84.71,
+        "avg_speed_body_heights_per_sec": 1.332,
+        "p90_speed_body_heights_per_sec": 2.634,
+        "max_speed_body_heights_per_sec": 3.492,
+        "raw_max_speed_body_heights_per_sec": 6.296,
+        "speed_outlier_count": 7,
+        "high_intensity_sample_count": 26
+      },
+      "quality_gate": {
+        "tracking_confidence": 77.4,
+        "visual_reliability_label": "medium",
+        "demo_suitable": false,
+        "lost_pct": 0.0,
+        "motion_jump_reject_count": 0,
+        "color_mismatch_reject_count": 0,
+        "failure_taxonomy": [
+          "bbox_drift_or_motion_jump",
+          "close_players_or_occlusion_risk"
+        ],
+        "hard_demo_blockers": true,
+        "legacy_gate": true,
+        "quality_gate_source": "posthoc_legacy_metrics_v3"
+      },
+      "events": [
+        {
+          "time_sec": 9.3,
+          "time_label": "00:09.3",
+          "action": "run_into_space",
+          "outcome": "neutral",
+          "confidence": "medium",
+          "evidence": "Peak movement speed: 3.49 body-heights/sec."
+        },
+        {
+          "time_sec": 3.9,
+          "time_label": "00:03.9",
+          "action": "carrying_ball",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+        },
+        {
+          "time_sec": 1.9,
+          "time_label": "00:01.9",
+          "action": "pressing",
+          "outcome": "neutral",
+          "confidence": "low",
+          "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+        }
+      ],
+      "rating": {
+        "ai_player_rating": 8.53,
+        "fifa_style_card": {
+          "OVR": 85,
+          "PAC": 87,
+          "ACT": 92,
+          "INV": 60,
+          "REL": 95,
+          "DEV": 84
+        }
+      },
+      "artifacts": {
+        "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\target_overlay_sampled.mp4",
+        "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\player_centered_sampled.mp4",
+        "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\candidate_selection_sheet.jpg",
+        "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\track_blue_candidate08_t17\\target_tracking_contact_sheet.jpg"
+      },
+      "limitations": [
+        "Short-clip MVP only.",
+        "Single selected player only.",
+        "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+        "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+      ]
+    }
+  ],
+  "openai_result": {
+    "provider_status": "openai_sdk_missing",
+    "model": "gpt-4.1-mini",
+    "fallback_mode": true,
+    "coach_summary": "OpenAI API недоступен, поэтому создан локальный fallback-отчет по JSON-метрикам. Главный демонстрационный запуск следует выбирать по visual evidence и quality_gate, а не только по рейтингу.",
+    "player_comparison": [
+      {
+        "run_name": "primary_134136",
+        "short_label": "Игрок 1",
+        "episode_profile": "Видимость 100.0%, trusted tracking 100.0%, ball-near 7.4%, pressure 55.6%, quality=high, demo_suitable=True.",
+        "strengths": [
+          "Трек игрока достаточно стабилен для короткого демонстрационного эпизода."
+        ],
+        "development_zones": [
+          "По этому клипу недостаточно данных для вывода о владении мячом, передачах или дриблинге."
+        ],
+        "training_recommendations": [
+          "Можно использовать клип для базовой оценки движения без завышенных выводов о технике.",
+          "Следующий шаг — сравнить этот эпизод с 2-3 другими клипами того же игрока."
+        ],
+        "rating_interpretation": "Рейтинг 8.38 — относительная мотивационная оценка внутри короткого клипа, а не показатель профессионального уровня игрока."
+      },
+      {
+        "run_name": "backup_134049",
+        "short_label": "Игрок 2",
+        "episode_profile": "Видимость 100.0%, trusted tracking 96.5%, ball-near 8.6%, pressure 86.2%, quality=high, demo_suitable=True.",
+        "strengths": [
+          "Трек игрока достаточно стабилен для короткого демонстрационного эпизода.",
+          "Игрок часто находился рядом с другими игроками, поэтому эпизод полезен для анализа игры под давлением."
+        ],
+        "development_zones": [
+          "По этому клипу недостаточно данных для вывода о владении мячом, передачах или дриблинге.",
+          "Ограничения запуска: close_players_or_occlusion_risk."
+        ],
+        "training_recommendations": [
+          "Можно проверить упражнения на открывание под давлением и принятие решений в плотных эпизодах.",
+          "Следующий шаг — сравнить этот эпизод с 2-3 другими клипами того же игрока."
+        ],
+        "rating_interpretation": "Рейтинг 8.22 — относительная мотивационная оценка внутри короткого клипа, а не показатель профессионального уровня игрока."
+      },
+      {
+        "run_name": "track_yellow_candidate03_t17",
+        "short_label": "Игрок 3",
+        "episode_profile": "Видимость 100.0%, trusted tracking 100.0%, ball-near 3.5%, pressure 78.8%, quality=medium, demo_suitable=False.",
+        "strengths": [
+          "Игрок часто находился рядом с другими игроками, поэтому эпизод полезен для анализа игры под давлением."
+        ],
+        "development_zones": [
+          "По этому клипу недостаточно данных для вывода о владении мячом, передачах или дриблинге.",
+          "Нужно визуально проверить contact sheet: возможны скачки bbox, occlusion или нестабильность tracking.",
+          "Ограничения запуска: bbox_drift_or_motion_jump, close_players_or_occlusion_risk."
+        ],
+        "training_recommendations": [
+          "Можно проверить упражнения на открывание под давлением и принятие решений в плотных эпизодах.",
+          "Следующий шаг — сравнить этот эпизод с 2-3 другими клипами того же игрока."
+        ],
+        "rating_interpretation": "Рейтинг 8.51 — относительная мотивационная оценка внутри короткого клипа, а не показатель профессионального уровня игрока."
+      },
+      {
+        "run_name": "track_blue_candidate08_t17",
+        "short_label": "Игрок 4",
+        "episode_profile": "Видимость 100.0%, trusted tracking 100.0%, ball-near 5.9%, pressure 84.7%, quality=medium, demo_suitable=False.",
+        "strengths": [
+          "Игрок часто находился рядом с другими игроками, поэтому эпизод полезен для анализа игры под давлением."
+        ],
+        "development_zones": [
+          "По этому клипу недостаточно данных для вывода о владении мячом, передачах или дриблинге.",
+          "Нужно визуально проверить contact sheet: возможны скачки bbox, occlusion или нестабильность tracking.",
+          "Ограничения запуска: bbox_drift_or_motion_jump, close_players_or_occlusion_risk."
+        ],
+        "training_recommendations": [
+          "Можно проверить упражнения на открывание под давлением и принятие решений в плотных эпизодах.",
+          "Следующий шаг — сравнить этот эпизод с 2-3 другими клипами того же игрока."
+        ],
+        "rating_interpretation": "Рейтинг 8.53 — относительная мотивационная оценка внутри короткого клипа, а не показатель профессионального уровня игрока."
+      }
+    ],
+    "best_demo_player": {
+      "run_name": "primary_134136",
+      "reason": "Лучший по demo_suitable=True и tracking_confidence=88.2."
+    },
+    "research_interpretation": [
+      "Короткий выбранный эпизод позволяет получить базовые image-space метрики и evidence-видео.",
+      "Плотные эпизоды, близкие игроки и скачки bbox должны рассматриваться как ограничения tracking, а не скрываться."
+    ],
+    "limitations": [
+      "Без калибровки поля нельзя честно заявлять скорость в км/ч или дистанцию в метрах.",
+      "Без надежной детекции мяча нельзя заявлять точные передачи, владение или xG.",
+      "OpenAI/LLM является только текстовым слоем поверх рассчитанных метрик."
+    ]
+  }
+}

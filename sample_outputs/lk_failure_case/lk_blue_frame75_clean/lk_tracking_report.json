@@ -1,0 +1,196 @@
+{
+  "stage": "rknp_lk_target_tracker",
+  "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+  "seed_bbox_xyxy": {
+    "x1": 793,
+    "y1": 244,
+    "x2": 834,
+    "y2": 307
+  },
+  "probe": {
+    "fps": 30.0,
+    "frame_count": 606,
+    "width": 1280,
+    "height": 720,
+    "sample_fps": 10.0
+  },
+  "records": [
+    {
+      "frame_index": 75,
+      "time_sec": 2.5,
+      "bbox_xyxy": {
+        "x1": 793,
+        "y1": 244,
+        "x2": 834,
+        "y2": 307
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 78,
+      "time_sec": 2.6,
+      "bbox_xyxy": {
+        "x1": 798,
+        "y1": 243,
+        "x2": 839,
+        "y2": 306
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 81,
+      "time_sec": 2.7,
+      "bbox_xyxy": {
+        "x1": 802,
+        "y1": 242,
+        "x2": 843,
+        "y2": 305
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 84,
+      "time_sec": 2.8,
+      "bbox_xyxy": {
+        "x1": 784,
+        "y1": 237,
+        "x2": 825,
+        "y2": 300
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 87,
+      "time_sec": 2.9,
+      "bbox_xyxy": {
+        "x1": 774,
+        "y1": 237,
+        "x2": 815,
+        "y2": 300
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 90,
+      "time_sec": 3.0,
+      "bbox_xyxy": {
+        "x1": 763,
+        "y1": 235,
+        "x2": 804,
+        "y2": 298
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 93,
+      "time_sec": 3.1,
+      "bbox_xyxy": {
+        "x1": 752,
+        "y1": 233,
+        "x2": 793,
+        "y2": 296
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 96,
+      "time_sec": 3.2,
+      "bbox_xyxy": {
+        "x1": 743,
+        "y1": 234,
+        "x2": 784,
+        "y2": 297
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 99,
+      "time_sec": 3.3,
+      "bbox_xyxy": {
+        "x1": 738,
+        "y1": 231,
+        "x2": 779,
+        "y2": 294
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 102,
+      "time_sec": 3.4,
+      "bbox_xyxy": {
+        "x1": 720,
+        "y1": 230,
+        "x2": 761,
+        "y2": 293
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 105,
+      "time_sec": 3.5,
+      "bbox_xyxy": {
+        "x1": 707,
+        "y1": 230,
+        "x2": 748,
+        "y2": 293
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 108,
+      "time_sec": 3.6,
+      "bbox_xyxy": {
+        "x1": 693,
+        "y1": 227,
+        "x2": 734,
+        "y2": 290
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 111,
+      "time_sec": 3.7,
+      "bbox_xyxy": {
+        "x1": 686,
+        "y1": 223,
+        "x2": 727,
+        "y2": 286
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 114,
+      "time_sec": 3.8,
+      "bbox_xyxy": {
+        "x1": 675,
+        "y1": 221,
+        "x2": 716,
+        "y2": 284
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 117,
+      "time_sec": 3.9,
+      "bbox_xyxy": {
+        "x1": 657,
+        "y1": 221,
+        "x2": 698,
+        "y2": 284
+      },
+      "status": "tracked"
+    },
+    {
+      "frame_index": 120,
+      "time_sec": 4.0,
+      "bbox_xyxy": null,
+      "status": "lost_points"
+    }
+  ],
+  "visible_pct": 93.75,
+  "artifacts": {
+    "overlay": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\lk_blue_frame75_clean\\lk_target_overlay.mp4",
+    "crop": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\lk_blue_frame75_clean\\lk_player_centered.mp4",
+    "sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\target_from_screenshot\\lk_blue_frame75_clean\\lk_crop_sheet.jpg"
+  }
+}

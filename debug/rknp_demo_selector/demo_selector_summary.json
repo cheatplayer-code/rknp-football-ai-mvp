@@ -1,0 +1,77 @@
+{
+  "run_count": 4,
+  "rows": [
+    {
+      "run_name": "primary_134136",
+      "report_path": "sample_outputs\\primary_134136\\rknp_single_player_report.json",
+      "selected_mode": "auto_lower_center",
+      "rating": 8.38,
+      "visibility_pct": 100.0,
+      "trusted_pct": 100.0,
+      "ball_near_pct": 7.41,
+      "pressure_pct": 55.56,
+      "speed_outlier_count": 1,
+      "tracking_confidence": 88.2,
+      "visual_reliability_label": "high",
+      "demo_suitable": true,
+      "failure_taxonomy": [],
+      "selector_score": 94.4
+    },
+    {
+      "run_name": "backup_134049",
+      "report_path": "sample_outputs\\backup_134049\\rknp_single_player_report.json",
+      "selected_mode": "auto_lower_center",
+      "rating": 8.22,
+      "visibility_pct": 100.0,
+      "trusted_pct": 96.55,
+      "ball_near_pct": 8.62,
+      "pressure_pct": 86.21,
+      "speed_outlier_count": 3,
+      "tracking_confidence": 83.39,
+      "visual_reliability_label": "high",
+      "demo_suitable": true,
+      "failure_taxonomy": [
+        "close_players_or_occlusion_risk"
+      ],
+      "selector_score": 85.783
+    },
+    {
+      "run_name": "track_blue_candidate08_t17",
+      "report_path": "sample_outputs\\screenshot_yellow_vs_blue\\track_blue_candidate08_t17\\rknp_single_player_report.json",
+      "selected_mode": "seed_bbox",
+      "rating": 8.53,
+      "visibility_pct": 100.0,
+      "trusted_pct": 100.0,
+      "ball_near_pct": 5.88,
+      "pressure_pct": 84.71,
+      "speed_outlier_count": 7,
+      "tracking_confidence": 77.4,
+      "visual_reliability_label": "medium",
+      "demo_suitable": true,
+      "failure_taxonomy": [
+        "bbox_drift_or_motion_jump",
+        "close_players_or_occlusion_risk"
+      ],
+      "selector_score": 72.8
+    },
+    {
+      "run_name": "track_yellow_candidate03_t17",
+      "report_path": "sample_outputs\\screenshot_yellow_vs_blue\\track_yellow_candidate03_t17\\rknp_single_player_report.json",
+      "selected_mode": "seed_bbox",
+      "rating": 8.51,
+      "visibility_pct": 100.0,
+      "trusted_pct": 100.0,
+      "ball_near_pct": 3.53,
+      "pressure_pct": 78.82,
+      "speed_outlier_count": 8,
+      "tracking_confidence": 75.6,
+      "visual_reliability_label": "medium",
+      "demo_suitable": true,
+      "failure_taxonomy": [
+        "bbox_drift_or_motion_jump",
+        "close_players_or_occlusion_risk"
+      ],
+      "selector_score": 69.2
+    }
+  ]
+}

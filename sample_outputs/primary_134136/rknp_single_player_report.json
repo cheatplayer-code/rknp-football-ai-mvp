@@ -1,0 +1,2074 @@
+{
+  "schema_version": "1.0",
+  "stage": "rknp_single_player_demo",
+  "created_at_utc": "2026-05-24T09:02:13.592392Z",
+  "status": "complete",
+  "input_video": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+  "output_dir": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto",
+  "video_probe": {
+    "path": "C:\\Users\\erbos\\Videos\\2026-05-24 13-41-36.mkv",
+    "opencv_opened": true,
+    "frame_count": 606,
+    "fps": 30.0,
+    "width": 1280,
+    "height": 720,
+    "duration_sec": 20.2,
+    "clip_start_sec": 2.5,
+    "clip_end_sec": 18.5,
+    "analysis_fps": 5.0,
+    "sampled_frame_count": 81
+  },
+  "selected_player": {
+    "mode": "auto_lower_center",
+    "frame_index": 75,
+    "time_sec": 2.5,
+    "bbox_xyxy": {
+      "x1": 784,
+      "y1": 368,
+      "x2": 836,
+      "y2": 464
+    },
+    "confidence": 0.802,
+    "description": "Auto-selected player for RKNP demo; coach can replace with a seed bbox."
+  },
+  "metrics": {
+    "sample_count": 81,
+    "duration_sec": 16.0,
+    "visible_sample_count": 81,
+    "trusted_sample_count": 81,
+    "visibility_pct": 100.0,
+    "trusted_pct": 100.0,
+    "ball_near_sample_count": 6,
+    "ball_near_pct": 7.41,
+    "pressure_sample_count": 45,
+    "pressure_pct": 55.56,
+    "avg_speed_body_heights_per_sec": 1.071,
+    "p90_speed_body_heights_per_sec": 2.158,
+    "max_speed_body_heights_per_sec": 3.97,
+    "raw_max_speed_body_heights_per_sec": 10.807,
+    "speed_outlier_count": 1,
+    "high_intensity_sample_count": 20
+  },
+  "events": [
+    {
+      "time_sec": 13.3,
+      "time_label": "00:13.3",
+      "action": "run_into_space",
+      "outcome": "neutral",
+      "confidence": "medium",
+      "evidence": "Peak movement speed: 3.97 body-heights/sec."
+    },
+    {
+      "time_sec": 3.9,
+      "time_label": "00:03.9",
+      "action": "receiving_ball",
+      "outcome": "neutral",
+      "confidence": "low",
+      "evidence": "YOLO detected the ball near the tracked player; exact pass/dribble outcome is not claimed."
+    },
+    {
+      "time_sec": 2.7,
+      "time_label": "00:02.7",
+      "action": "pressing",
+      "outcome": "neutral",
+      "confidence": "low",
+      "evidence": "Several nearby players were detected around the target; this may indicate pressure/duel context."
+    }
+  ],
+  "rating": {
+    "ai_player_rating": 8.38,
+    "fifa_style_card": {
+      "OVR": 84,
+      "PAC": 86,
+      "ACT": 87,
+      "INV": 55,
+      "REL": 95,
+      "DEV": 81
+    }
+  },
+  "narrative": {
+    "summary": "В коротком эпизоде система удержала выбранного игрока на 100.0% sampled-кадров. По движению игрок показал высокоинтенсивное ускорение и активно менял позицию. Близость мяча к игроку зафиксирована на 7.4% видимых кадров, контекст давления рядом с другими игроками — на 55.6%.",
+    "strengths": [
+      "Игрок достаточно стабильно виден в кадре, поэтому его действия можно использовать как evidence для тренера.",
+      "Есть заметные ускорения: это полезно для оценки рывков, открываний и реакции на эпизод.",
+      "В эпизоде есть признаки вовлечения рядом с мячом, но точный исход действия требует ручной проверки."
+    ],
+    "weaknesses": [
+      "Главное ограничение — короткая длительность эпизода; для устойчивой оценки нужны несколько клипов из матча."
+    ],
+    "training_recommendations": [
+      "3x6 ускорений 10-15 м с изменением направления после визуального сигнала тренера.",
+      "Упражнение 4v2/5v3 на открывание под передачу и быстрое решение после приема.",
+      "Видео-разбор 2-3 эпизодов: где игрок открылся вовремя, где мог дать лучший угол поддержки.",
+      "Прессинг-триггеры: старт давления после плохого приема соперника или передачи назад."
+    ]
+  },
+  "artifacts": {
+    "target_overlay_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\target_overlay_sampled.mp4",
+    "player_centered_video": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\player_centered_sampled.mp4",
+    "candidate_selection_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\candidate_selection_sheet.jpg",
+    "candidate_selection_json": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\candidate_selection.json",
+    "target_tracking_contact_sheet": "C:\\Users\\erbos\\Downloads\\zhanto_project\\debug\\rknp_single_player_134136_auto\\target_tracking_contact_sheet.jpg"
+  },
+  "records": [
+    {
+      "bbox_xyxy": {
+        "x1": 784,
+        "y1": 368,
+        "x2": 836,
+        "y2": 464
+      },
+      "tracking_score": 1.0,
+      "trust_label": "trusted",
+      "person_count": 23,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearby_player_count": 0,
+      "frame_index": 75,
+      "time_sec": 2.5,
+      "time_label": "00:02.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 794,
+        "y1": 372,
+        "x2": 857,
+        "y2": 465
+      },
+      "tracking_score": 0.926,
+      "trust_label": "trusted",
+      "person_count": 23,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 81,
+      "time_sec": 2.7,
+      "time_label": "00:02.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 775,
+        "y1": 375,
+        "x2": 829,
+        "y2": 470
+      },
+      "tracking_score": 0.937,
+      "trust_label": "trusted",
+      "person_count": 25,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 549.14,
+      "nearby_player_count": 3,
+      "frame_index": 87,
+      "time_sec": 2.9,
+      "time_label": "00:02.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 751,
+        "y1": 380,
+        "x2": 820,
+        "y2": 470
+      },
+      "tracking_score": 0.936,
+      "trust_label": "trusted",
+      "person_count": 21,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 532.06,
+      "nearby_player_count": 1,
+      "frame_index": 93,
+      "time_sec": 3.1,
+      "time_label": "00:03.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 758,
+        "y1": 386,
+        "x2": 815,
+        "y2": 472
+      },
+      "tracking_score": 0.952,
+      "trust_label": "trusted",
+      "person_count": 23,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 99,
+      "time_sec": 3.3,
+      "time_label": "00:03.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 732,
+        "y1": 380,
+        "x2": 803,
+        "y2": 476
+      },
+      "tracking_score": 0.919,
+      "trust_label": "trusted",
+      "person_count": 26,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 105,
+      "time_sec": 3.5,
+      "time_label": "00:03.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 729,
+        "y1": 379,
+        "x2": 791,
+        "y2": 473
+      },
+      "tracking_score": 0.962,
+      "trust_label": "trusted",
+      "person_count": 20,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 507.0,
+      "nearby_player_count": 1,
+      "frame_index": 111,
+      "time_sec": 3.7,
+      "time_label": "00:03.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 737,
+        "y1": 380,
+        "x2": 787,
+        "y2": 473
+      },
+      "tracking_score": 0.954,
+      "trust_label": "trusted",
+      "person_count": 23,
+      "ball_count": 2,
+      "ball_near": true,
+      "nearest_ball_distance_px": 193.34,
+      "nearby_player_count": 2,
+      "frame_index": 117,
+      "time_sec": 3.9,
+      "time_label": "00:03.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 710,
+        "y1": 373,
+        "x2": 779,
+        "y2": 468
+      },
+      "tracking_score": 0.915,
+      "trust_label": "trusted",
+      "person_count": 19,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 123,
+      "time_sec": 4.1,
+      "time_label": "00:04.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 718,
+        "y1": 376,
+        "x2": 778,
+        "y2": 469
+      },
+      "tracking_score": 0.961,
+      "trust_label": "trusted",
+      "person_count": 16,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 254.92,
+      "nearby_player_count": 2,
+      "frame_index": 129,
+      "time_sec": 4.3,
+      "time_label": "00:04.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 747,
+        "y1": 377,
+        "x2": 803,
+        "y2": 472
+      },
+      "tracking_score": 0.938,
+      "trust_label": "trusted",
+      "person_count": 25,
+      "ball_count": 1,
+      "ball_near": true,
+      "nearest_ball_distance_px": 26.8,
+      "nearby_player_count": 2,
+      "frame_index": 135,
+      "time_sec": 4.5,
+      "time_label": "00:04.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 753,
+        "y1": 371,
+        "x2": 825,
+        "y2": 470
+      },
+      "tracking_score": 0.932,
+      "trust_label": "trusted",
+      "person_count": 18,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 141,
+      "time_sec": 4.7,
+      "time_label": "00:04.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 765,
+        "y1": 372,
+        "x2": 822,
+        "y2": 470
+      },
+      "tracking_score": 0.957,
+      "trust_label": "trusted",
+      "person_count": 20,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 147,
+      "time_sec": 4.9,
+      "time_label": "00:04.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 760,
+        "y1": 369,
+        "x2": 812,
+        "y2": 466
+      },
+      "tracking_score": 0.965,
+      "trust_label": "trusted",
+      "person_count": 20,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 5,
+      "frame_index": 153,
+      "time_sec": 5.1,
+      "time_label": "00:05.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 734,
+        "y1": 366,
+        "x2": 803,
+        "y2": 460
+      },
+      "tracking_score": 0.937,
+      "trust_label": "trusted",
+      "person_count": 16,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 159,
+      "time_sec": 5.3,
+      "time_label": "00:05.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 730,
+        "y1": 366,
+        "x2": 795,
+        "y2": 460
+      },
+      "tracking_score": 0.974,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 4,
+      "frame_index": 165,
+      "time_sec": 5.5,
+      "time_label": "00:05.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 727,
+        "y1": 362,
+        "x2": 792,
+        "y2": 460
+      },
+      "tracking_score": 0.987,
+      "trust_label": "trusted",
+      "person_count": 21,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 4,
+      "frame_index": 171,
+      "time_sec": 5.7,
+      "time_label": "00:05.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 723,
+        "y1": 354,
+        "x2": 797,
+        "y2": 453
+      },
+      "tracking_score": 0.965,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 4,
+      "frame_index": 177,
+      "time_sec": 5.9,
+      "time_label": "00:05.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 728,
+        "y1": 353,
+        "x2": 791,
+        "y2": 450
+      },
+      "tracking_score": 0.972,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 5,
+      "frame_index": 183,
+      "time_sec": 6.1,
+      "time_label": "00:06.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 751,
+        "y1": 357,
+        "x2": 798,
+        "y2": 452
+      },
+      "tracking_score": 0.922,
+      "trust_label": "trusted",
+      "person_count": 16,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 6,
+      "frame_index": 189,
+      "time_sec": 6.3,
+      "time_label": "00:06.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 733,
+        "y1": 354,
+        "x2": 799,
+        "y2": 449
+      },
+      "tracking_score": 0.93,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 5,
+      "frame_index": 195,
+      "time_sec": 6.5,
+      "time_label": "00:06.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 736,
+        "y1": 351,
+        "x2": 801,
+        "y2": 442
+      },
+      "tracking_score": 0.977,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 4,
+      "frame_index": 201,
+      "time_sec": 6.7,
+      "time_label": "00:06.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 765,
+        "y1": 351,
+        "x2": 818,
+        "y2": 444
+      },
+      "tracking_score": 0.932,
+      "trust_label": "trusted",
+      "person_count": 16,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 207,
+      "time_sec": 6.9,
+      "time_label": "00:06.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 775,
+        "y1": 345,
+        "x2": 833,
+        "y2": 435
+      },
+      "tracking_score": 0.959,
+      "trust_label": "trusted",
+      "person_count": 17,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 213,
+      "time_sec": 7.1,
+      "time_label": "00:07.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 816,
+        "y1": 344,
+        "x2": 867,
+        "y2": 433
+      },
+      "tracking_score": 0.903,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 219,
+      "time_sec": 7.3,
+      "time_label": "00:07.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 852,
+        "y1": 340,
+        "x2": 905,
+        "y2": 429
+      },
+      "tracking_score": 0.925,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 225,
+      "time_sec": 7.5,
+      "time_label": "00:07.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 879,
+        "y1": 333,
+        "x2": 928,
+        "y2": 424
+      },
+      "tracking_score": 0.941,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 231,
+      "time_sec": 7.7,
+      "time_label": "00:07.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 916,
+        "y1": 336,
+        "x2": 951,
+        "y2": 421
+      },
+      "tracking_score": 0.887,
+      "trust_label": "trusted",
+      "person_count": 16,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 237,
+      "time_sec": 7.9,
+      "time_label": "00:07.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 935,
+        "y1": 333,
+        "x2": 996,
+        "y2": 417
+      },
+      "tracking_score": 0.866,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 243,
+      "time_sec": 8.1,
+      "time_label": "00:08.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 977,
+        "y1": 329,
+        "x2": 1028,
+        "y2": 416
+      },
+      "tracking_score": 0.909,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 249,
+      "time_sec": 8.3,
+      "time_label": "00:08.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 1013,
+        "y1": 330,
+        "x2": 1051,
+        "y2": 415
+      },
+      "tracking_score": 0.902,
+      "trust_label": "trusted",
+      "person_count": 17,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 255,
+      "time_sec": 8.5,
+      "time_label": "00:08.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 1014,
+        "y1": 329,
+        "x2": 1069,
+        "y2": 413
+      },
+      "tracking_score": 0.935,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 261,
+      "time_sec": 8.7,
+      "time_label": "00:08.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 1013,
+        "y1": 327,
+        "x2": 1060,
+        "y2": 410
+      },
+      "tracking_score": 0.966,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 267,
+      "time_sec": 8.9,
+      "time_label": "00:08.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 980,
+        "y1": 327,
+        "x2": 1031,
+        "y2": 413
+      },
+      "tracking_score": 0.922,
+      "trust_label": "trusted",
+      "person_count": 17,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 273,
+      "time_sec": 9.1,
+      "time_label": "00:09.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 947,
+        "y1": 329,
+        "x2": 1003,
+        "y2": 409
+      },
+      "tracking_score": 0.933,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 2,
+      "ball_near": false,
+      "nearest_ball_distance_px": 245.2,
+      "nearby_player_count": 1,
+      "frame_index": 279,
+      "time_sec": 9.3,
+      "time_label": "00:09.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 949,
+        "y1": 333,
+        "x2": 987,
+        "y2": 411
+      },
+      "tracking_score": 0.922,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 285,
+      "time_sec": 9.5,
+      "time_label": "00:09.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 910,
+        "y1": 327,
+        "x2": 949,
+        "y2": 403
+      },
+      "tracking_score": 0.909,
+      "trust_label": "trusted",
+      "person_count": 16,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 374.94,
+      "nearby_player_count": 1,
+      "frame_index": 291,
+      "time_sec": 9.7,
+      "time_label": "00:09.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 881,
+        "y1": 322,
+        "x2": 921,
+        "y2": 400
+      },
+      "tracking_score": 0.916,
+      "trust_label": "trusted",
+      "person_count": 18,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 297,
+      "time_sec": 9.9,
+      "time_label": "00:09.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 851,
+        "y1": 317,
+        "x2": 885,
+        "y2": 394
+      },
+      "tracking_score": 0.902,
+      "trust_label": "trusted",
+      "person_count": 17,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 303,
+      "time_sec": 10.1,
+      "time_label": "00:10.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 830,
+        "y1": 313,
+        "x2": 858,
+        "y2": 386
+      },
+      "tracking_score": 0.901,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 309,
+      "time_sec": 10.3,
+      "time_label": "00:10.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 802,
+        "y1": 310,
+        "x2": 847,
+        "y2": 386
+      },
+      "tracking_score": 0.884,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 315,
+      "time_sec": 10.5,
+      "time_label": "00:10.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 800,
+        "y1": 311,
+        "x2": 833,
+        "y2": 392
+      },
+      "tracking_score": 0.939,
+      "trust_label": "trusted",
+      "person_count": 9,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 321,
+      "time_sec": 10.7,
+      "time_label": "00:10.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 800,
+        "y1": 313,
+        "x2": 831,
+        "y2": 389
+      },
+      "tracking_score": 0.978,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 327,
+      "time_sec": 10.9,
+      "time_label": "00:10.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 812,
+        "y1": 310,
+        "x2": 849,
+        "y2": 388
+      },
+      "tracking_score": 0.939,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 333,
+      "time_sec": 11.1,
+      "time_label": "00:11.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 842,
+        "y1": 308,
+        "x2": 876,
+        "y2": 382
+      },
+      "tracking_score": 0.922,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 339,
+      "time_sec": 11.3,
+      "time_label": "00:11.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 859,
+        "y1": 302,
+        "x2": 891,
+        "y2": 378
+      },
+      "tracking_score": 0.957,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 345,
+      "time_sec": 11.5,
+      "time_label": "00:11.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 885,
+        "y1": 299,
+        "x2": 912,
+        "y2": 375
+      },
+      "tracking_score": 0.907,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 351,
+      "time_sec": 11.7,
+      "time_label": "00:11.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 899,
+        "y1": 294,
+        "x2": 936,
+        "y2": 370
+      },
+      "tracking_score": 0.915,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 357,
+      "time_sec": 11.9,
+      "time_label": "00:11.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 915,
+        "y1": 290,
+        "x2": 943,
+        "y2": 368
+      },
+      "tracking_score": 0.936,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 363,
+      "time_sec": 12.1,
+      "time_label": "00:12.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 925,
+        "y1": 291,
+        "x2": 956,
+        "y2": 365
+      },
+      "tracking_score": 0.962,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 369,
+      "time_sec": 12.3,
+      "time_label": "00:12.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 931,
+        "y1": 285,
+        "x2": 962,
+        "y2": 360
+      },
+      "tracking_score": 0.977,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 375,
+      "time_sec": 12.5,
+      "time_label": "00:12.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 933,
+        "y1": 286,
+        "x2": 974,
+        "y2": 356
+      },
+      "tracking_score": 0.953,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 381,
+      "time_sec": 12.7,
+      "time_label": "00:12.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 913,
+        "y1": 284,
+        "x2": 943,
+        "y2": 352
+      },
+      "tracking_score": 0.892,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 360.72,
+      "nearby_player_count": 1,
+      "frame_index": 387,
+      "time_sec": 12.9,
+      "time_label": "00:12.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 859,
+        "y1": 280,
+        "x2": 893,
+        "y2": 345
+      },
+      "tracking_score": 0.861,
+      "trust_label": "trusted",
+      "person_count": 15,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 393,
+      "time_sec": 13.1,
+      "time_label": "00:13.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 805,
+        "y1": 270,
+        "x2": 839,
+        "y2": 342
+      },
+      "tracking_score": 0.845,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 399,
+      "time_sec": 13.3,
+      "time_label": "00:13.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 762,
+        "y1": 272,
+        "x2": 800,
+        "y2": 335
+      },
+      "tracking_score": 0.895,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 405,
+      "time_sec": 13.5,
+      "time_label": "00:13.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 731,
+        "y1": 261,
+        "x2": 774,
+        "y2": 330
+      },
+      "tracking_score": 0.892,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 1,
+      "ball_near": true,
+      "nearest_ball_distance_px": 57.92,
+      "nearby_player_count": 2,
+      "frame_index": 411,
+      "time_sec": 13.7,
+      "time_label": "00:13.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 713,
+        "y1": 259,
+        "x2": 747,
+        "y2": 323
+      },
+      "tracking_score": 0.896,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 3,
+      "frame_index": 417,
+      "time_sec": 13.9,
+      "time_label": "00:13.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 692,
+        "y1": 256,
+        "x2": 726,
+        "y2": 319
+      },
+      "tracking_score": 0.927,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 351.26,
+      "nearby_player_count": 2,
+      "frame_index": 423,
+      "time_sec": 14.1,
+      "time_label": "00:14.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 656,
+        "y1": 253,
+        "x2": 687,
+        "y2": 318
+      },
+      "tracking_score": 0.88,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 429,
+      "time_sec": 14.3,
+      "time_label": "00:14.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 617,
+        "y1": 250,
+        "x2": 645,
+        "y2": 320
+      },
+      "tracking_score": 0.852,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 0,
+      "frame_index": 435,
+      "time_sec": 14.5,
+      "time_label": "00:14.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 621,
+        "y1": 252,
+        "x2": 663,
+        "y2": 320
+      },
+      "tracking_score": 0.888,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 441,
+      "time_sec": 14.7,
+      "time_label": "00:14.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 623,
+        "y1": 256,
+        "x2": 661,
+        "y2": 331
+      },
+      "tracking_score": 0.937,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 447,
+      "time_sec": 14.9,
+      "time_label": "00:14.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 630,
+        "y1": 250,
+        "x2": 655,
+        "y2": 329
+      },
+      "tracking_score": 0.879,
+      "trust_label": "trusted",
+      "person_count": 10,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 453,
+      "time_sec": 15.1,
+      "time_label": "00:15.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 634,
+        "y1": 260,
+        "x2": 677,
+        "y2": 336
+      },
+      "tracking_score": 0.878,
+      "trust_label": "trusted",
+      "person_count": 10,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 459,
+      "time_sec": 15.3,
+      "time_label": "00:15.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 643,
+        "y1": 268,
+        "x2": 672,
+        "y2": 339
+      },
+      "tracking_score": 0.885,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 465,
+      "time_sec": 15.5,
+      "time_label": "00:15.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 645,
+        "y1": 272,
+        "x2": 674,
+        "y2": 349
+      },
+      "tracking_score": 0.945,
+      "trust_label": "trusted",
+      "person_count": 10,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 302.78,
+      "nearby_player_count": 1,
+      "frame_index": 471,
+      "time_sec": 15.7,
+      "time_label": "00:15.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 648,
+        "y1": 279,
+        "x2": 673,
+        "y2": 352
+      },
+      "tracking_score": 0.947,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 477,
+      "time_sec": 15.9,
+      "time_label": "00:15.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 643,
+        "y1": 279,
+        "x2": 668,
+        "y2": 355
+      },
+      "tracking_score": 0.943,
+      "trust_label": "trusted",
+      "person_count": 9,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 483,
+      "time_sec": 16.1,
+      "time_label": "00:16.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 636,
+        "y1": 275,
+        "x2": 664,
+        "y2": 359
+      },
+      "tracking_score": 0.937,
+      "trust_label": "trusted",
+      "person_count": 10,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 1,
+      "frame_index": 489,
+      "time_sec": 16.3,
+      "time_label": "00:16.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 634,
+        "y1": 283,
+        "x2": 659,
+        "y2": 361
+      },
+      "tracking_score": 0.946,
+      "trust_label": "trusted",
+      "person_count": 13,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 310.5,
+      "nearby_player_count": 1,
+      "frame_index": 495,
+      "time_sec": 16.5,
+      "time_label": "00:16.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 631,
+        "y1": 276,
+        "x2": 658,
+        "y2": 364
+      },
+      "tracking_score": 0.946,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 312.51,
+      "nearby_player_count": 2,
+      "frame_index": 501,
+      "time_sec": 16.7,
+      "time_label": "00:16.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 630,
+        "y1": 286,
+        "x2": 653,
+        "y2": 370
+      },
+      "tracking_score": 0.933,
+      "trust_label": "trusted",
+      "person_count": 10,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 315.55,
+      "nearby_player_count": 2,
+      "frame_index": 507,
+      "time_sec": 16.9,
+      "time_label": "00:16.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 623,
+        "y1": 283,
+        "x2": 653,
+        "y2": 371
+      },
+      "tracking_score": 0.931,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 319.03,
+      "nearby_player_count": 3,
+      "frame_index": 513,
+      "time_sec": 17.1,
+      "time_label": "00:17.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 625,
+        "y1": 286,
+        "x2": 654,
+        "y2": 372
+      },
+      "tracking_score": 0.965,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 1,
+      "ball_near": false,
+      "nearest_ball_distance_px": 318.56,
+      "nearby_player_count": 2,
+      "frame_index": 519,
+      "time_sec": 17.3,
+      "time_label": "00:17.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 625,
+        "y1": 291,
+        "x2": 657,
+        "y2": 377
+      },
+      "tracking_score": 0.963,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 2,
+      "ball_near": true,
+      "nearest_ball_distance_px": 136.57,
+      "nearby_player_count": 3,
+      "frame_index": 525,
+      "time_sec": 17.5,
+      "time_label": "00:17.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 627,
+        "y1": 292,
+        "x2": 662,
+        "y2": 377
+      },
+      "tracking_score": 0.968,
+      "trust_label": "trusted",
+      "person_count": 11,
+      "ball_count": 2,
+      "ball_near": true,
+      "nearest_ball_distance_px": 141.44,
+      "nearby_player_count": 3,
+      "frame_index": 531,
+      "time_sec": 17.7,
+      "time_label": "00:17.7",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 626,
+        "y1": 293,
+        "x2": 657,
+        "y2": 379
+      },
+      "tracking_score": 0.926,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 2,
+      "ball_near": true,
+      "nearest_ball_distance_px": 148.49,
+      "nearby_player_count": 3,
+      "frame_index": 537,
+      "time_sec": 17.9,
+      "time_label": "00:17.9",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 627,
+        "y1": 294,
+        "x2": 655,
+        "y2": 340
+      },
+      "tracking_score": 0.827,
+      "trust_label": "trusted",
+      "person_count": 12,
+      "ball_count": 2,
+      "ball_near": false,
+      "nearest_ball_distance_px": 146.08,
+      "nearby_player_count": 1,
+      "frame_index": 543,
+      "time_sec": 18.1,
+      "time_label": "00:18.1",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 627,
+        "y1": 394,
+        "x2": 656,
+        "y2": 441
+      },
+      "tracking_score": 0.614,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 549,
+      "time_sec": 18.3,
+      "time_label": "00:18.3",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    },
+    {
+      "bbox_xyxy": {
+        "x1": 627,
+        "y1": 394,
+        "x2": 656,
+        "y2": 441
+      },
+      "tracking_score": 0.984,
+      "trust_label": "trusted",
+      "person_count": 14,
+      "ball_count": 0,
+      "ball_near": false,
+      "nearest_ball_distance_px": null,
+      "nearby_player_count": 2,
+      "frame_index": 555,
+      "time_sec": 18.5,
+      "time_label": "00:18.5",
+      "analysis_usable": true,
+      "analysis_trusted": true
+    }
+  ],
+  "speed_rows": [
+    {
+      "time_sec": 2.7,
+      "speed_body_heights_per_sec": 0.8307046808522524
+    },
+    {
+      "time_sec": 2.9,
+      "speed_body_heights_per_sec": 1.2679784511766203
+    },
+    {
+      "time_sec": 3.1,
+      "speed_body_heights_per_sec": 0.9020713117988444
+    },
+    {
+      "time_sec": 3.3,
+      "speed_body_heights_per_sec": 0.23426736509191282
+    },
+    {
+      "time_sec": 3.5,
+      "speed_body_heights_per_sec": 1.045400966507716
+    },
+    {
+      "time_sec": 3.7,
+      "speed_body_heights_per_sec": 0.408530913059474
+    },
+    {
+      "time_sec": 3.9,
+      "speed_body_heights_per_sec": 0.11024346592560605
+    },
+    {
+      "time_sec": 4.1,
+      "speed_body_heights_per_sec": 0.9840425531914907
+    },
+    {
+      "time_sec": 4.3,
+      "speed_body_heights_per_sec": 0.21442174862496122
+    },
+    {
+      "time_sec": 4.5,
+      "speed_body_heights_per_sec": 1.4401049330511566
+    },
+    {
+      "time_sec": 4.7,
+      "speed_body_heights_per_sec": 0.7505267927093311
+    },
+    {
+      "time_sec": 4.9,
+      "speed_body_heights_per_sec": 0.22983211010501037
+    },
+    {
+      "time_sec": 5.1,
+      "speed_body_heights_per_sec": 0.4244344963396643
+    },
+    {
+      "time_sec": 5.3,
+      "speed_body_heights_per_sec": 0.9460372251095621
+    },
+    {
+      "time_sec": 5.5,
+      "speed_body_heights_per_sec": 0.31914893617021245
+    },
+    {
+      "time_sec": 5.7,
+      "speed_body_heights_per_sec": 0.18778912893041594
+    },
+    {
+      "time_sec": 5.9,
+      "speed_body_heights_per_sec": 0.3815557456439821
+    },
+    {
+      "time_sec": 6.1,
+      "speed_body_heights_per_sec": 0.10518126595963458
+    },
+    {
+      "time_sec": 6.3,
+      "speed_body_heights_per_sec": 0.796721798998872
+    },
+    {
+      "time_sec": 6.5,
+      "speed_body_heights_per_sec": 0.4744146415084192
+    },
+    {
+      "time_sec": 6.7,
+      "speed_body_heights_per_sec": 0.3005467711693263
+    },
+    {
+      "time_sec": 6.9,
+      "speed_body_heights_per_sec": 1.251180916654492
+    },
+    {
+      "time_sec": 7.1,
+      "speed_body_heights_per_sec": 0.7965781277111094
+    },
+    {
+      "time_sec": 7.3,
+      "speed_body_heights_per_sec": 2.0966473748374512
+    },
+    {
+      "time_sec": 7.5,
+      "speed_body_heights_per_sec": 2.0907633781942
+    },
+    {
+      "time_sec": 7.7,
+      "speed_body_heights_per_sec": 1.4283289035758255
+    },
+    {
+      "time_sec": 7.9,
+      "speed_body_heights_per_sec": 1.7045454545454528
+    },
+    {
+      "time_sec": 8.1,
+      "speed_body_heights_per_sec": 1.9047832666059088
+    },
+    {
+      "time_sec": 8.3,
+      "speed_body_heights_per_sec": 2.1686762152969075
+    },
+    {
+      "time_sec": 8.5,
+      "speed_body_heights_per_sec": 1.7151162790697736
+    },
+    {
+      "time_sec": 8.7,
+      "speed_body_heights_per_sec": 0.5690942030080299
+    },
+    {
+      "time_sec": 8.9,
+      "speed_body_heights_per_sec": 0.3347407151945775
+    },
+    {
+      "time_sec": 9.1,
+      "speed_body_heights_per_sec": 1.836465627554858
+    },
+    {
+      "time_sec": 9.3,
+      "speed_body_heights_per_sec": 1.8383366891165116
+    },
+    {
+      "time_sec": 9.5,
+      "speed_body_heights_per_sec": 0.48201095606733774
+    },
+    {
+      "time_sec": 9.7,
+      "speed_body_heights_per_sec": 2.5409863380679516
+    },
+    {
+      "time_sec": 9.9,
+      "speed_body_heights_per_sec": 1.8687878482023486
+    },
+    {
+      "time_sec": 10.1,
+      "speed_body_heights_per_sec": 2.1583996075251823
+    },
+    {
+      "time_sec": 10.3,
+      "speed_body_heights_per_sec": 1.6492422502470554
+    },
+    {
+      "time_sec": 10.5,
+      "speed_body_heights_per_sec": 1.31259108829584
+    },
+    {
+      "time_sec": 10.7,
+      "speed_body_heights_per_sec": 0.5561862801456382
+    },
+    {
+      "time_sec": 10.9,
+      "speed_body_heights_per_sec": 0.07121235597133051
+    },
+    {
+      "time_sec": 11.1,
+      "speed_body_heights_per_sec": 0.9826458409364681
+    },
+    {
+      "time_sec": 11.3,
+      "speed_body_heights_per_sec": 1.8933771619944846
+    },
+    {
+      "time_sec": 11.5,
+      "speed_body_heights_per_sec": 1.1175369742826846
+    },
+    {
+      "time_sec": 11.7,
+      "speed_body_heights_per_sec": 1.5585997026950231
+    },
+    {
+      "time_sec": 11.9,
+      "speed_body_heights_per_sec": 1.2925580726571313
+    },
+    {
+      "time_sec": 12.1,
+      "speed_body_heights_per_sec": 0.7717444366236854
+    },
+    {
+      "time_sec": 12.3,
+      "speed_body_heights_per_sec": 0.7594339724088904
+    },
+    {
+      "time_sec": 12.5,
+      "speed_body_heights_per_sec": 0.5462691475201263
+    },
+    {
+      "time_sec": 12.7,
+      "speed_body_heights_per_sec": 0.49371796769918636
+    },
+    {
+      "time_sec": 12.9,
+      "speed_body_heights_per_sec": 1.8605698661547392
+    },
+    {
+      "time_sec": 13.1,
+      "speed_body_heights_per_sec": 3.9315831891812407
+    },
+    {
+      "time_sec": 13.3,
+      "speed_body_heights_per_sec": 3.97005816330469
+    },
+    {
+      "time_sec": 13.5,
+      "speed_body_heights_per_sec": 3.042677688672733
+    },
+    {
+      "time_sec": 13.7,
+      "speed_body_heights_per_sec": 2.2425394114569297
+    },
+    {
+      "time_sec": 13.9,
+      "speed_body_heights_per_sec": 1.7252321662531886
+    },
+    {
+      "time_sec": 14.1,
+      "speed_body_heights_per_sec": 1.6763518784286493
+    },
+    {
+      "time_sec": 14.3,
+      "speed_body_heights_per_sec": 2.933851207910203
+    },
+    {
+      "time_sec": 14.5,
+      "speed_body_heights_per_sec": 3.0002286149746236
+    },
+    {
+      "time_sec": 14.7,
+      "speed_body_heights_per_sec": 0.8003884795063262
+    },
+    {
+      "time_sec": 14.9,
+      "speed_body_heights_per_sec": 0.5244755244755217
+    },
+    {
+      "time_sec": 15.1,
+      "speed_body_heights_per_sec": 0.2617616152044993
+    },
+    {
+      "time_sec": 15.3,
+      "speed_body_heights_per_sec": 1.0020790043231602
+    },
+    {
+      "time_sec": 15.5,
+      "speed_body_heights_per_sec": 0.3981190445823016
+    },
+    {
+      "time_sec": 15.7,
+      "speed_body_heights_per_sec": 0.49189931684328
+    },
+    {
+      "time_sec": 15.9,
+      "speed_body_heights_per_sec": 0.33993463423951714
+    },
+    {
+      "time_sec": 16.1,
+      "speed_body_heights_per_sec": 0.3503458560037079
+    },
+    {
+      "time_sec": 16.3,
+      "speed_body_heights_per_sec": 0.3437500000000013
+    },
+    {
+      "time_sec": 16.5,
+      "speed_body_heights_per_sec": 0.37674554369548596
+    },
+    {
+      "time_sec": 16.7,
+      "speed_body_heights_per_sec": 0.17038717618953014
+    },
+    {
+      "time_sec": 16.9,
+      "speed_body_heights_per_sec": 0.4967444037975326
+    },
+    {
+      "time_sec": 17.1,
+      "speed_body_heights_per_sec": 0.21163110143257022
+    },
+    {
+      "time_sec": 17.3,
+      "speed_body_heights_per_sec": 0.14367816091954075
+    },
+    {
+      "time_sec": 17.5,
+      "speed_body_heights_per_sec": 0.3034972822357729
+    },
+    {
+      "time_sec": 17.7,
+      "speed_body_heights_per_sec": 0.2067563687679971
+    },
+    {
+      "time_sec": 17.9,
+      "speed_body_heights_per_sec": 0.19614631381577174
+    },
+    {
+      "time_sec": 18.1,
+      "speed_body_heights_per_sec": 1.4398922582384805
+    },
+    {
+      "time_sec": 18.3,
+      "speed_body_heights_per_sec": 10.806585351978333
+    },
+    {
+      "time_sec": 18.5,
+      "speed_body_heights_per_sec": 0.0
+    }
+  ],
+  "limitations": [
+    "Short-clip MVP only.",
+    "Single selected player only.",
+    "No xG, exact pass map, heatmap, team network, or full-match tactical claim.",
+    "Screen-recorded broadcast clips include UI artifacts; clean trimming improves reliability."
+  ],
+  "quality_gate": {
+    "tracking_confidence": 88.2,
+    "visual_reliability_label": "high",
+    "demo_suitable": true,
+    "lost_pct": 0.0,
+    "motion_jump_reject_count": 0,
+    "color_mismatch_reject_count": 0,
+    "failure_taxonomy": [],
+    "hard_demo_blockers": false,
+    "legacy_gate": true,
+    "quality_gate_source": "posthoc_legacy_metrics_v3"
+  }
+}

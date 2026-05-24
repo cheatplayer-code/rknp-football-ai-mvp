@@ -1,0 +1,7 @@
+# Minimal runtime for the contest MVP
+# YOLO/OpenCV single-player pipeline + optional OpenAI text layer
+
+numpy
+opencv-python
+ultralytics
+openai
